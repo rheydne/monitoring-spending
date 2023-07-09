@@ -60,7 +60,7 @@ public class Revenue {
     private Category category;
 
     @ManyToOne
-    @JoinColumn(name = "user_information_id", nullable = false, updatable = false)
-    private UserInformation userInformation;
+    @JoinColumn(name = "user_id", nullable = false, updatable = false)
+    private User user;
     
 }
