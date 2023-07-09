@@ -66,9 +66,11 @@ public class User {
     @Size(min = 2, max = 60)
     private String emailAdress;
 
+    @JsonProperty(access = Access.WRITE_ONLY)
     @OneToMany(mappedBy = "user")
     private List<Revenue> revenues = new ArrayList<Revenue>();
 
+    @JsonProperty(access = Access.WRITE_ONLY)
     @OneToMany(mappedBy = "user")
     private List<Expense> expenses = new ArrayList<Expense>();
 }
