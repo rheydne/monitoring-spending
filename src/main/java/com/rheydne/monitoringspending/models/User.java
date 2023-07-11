@@ -73,4 +73,11 @@ public class User {
     @JsonProperty(access = Access.WRITE_ONLY)
     @OneToMany(mappedBy = "user")
     private List<Expense> expenses = new ArrayList<Expense>();
+
+    public String maskedEmail(String email) {
+        int arrobaIndex = email.indexOf("@");
+        String lengthEmail = email.substring(2, arrobaIndex);
+        String masked = "*".repeat(lengthEmail.length());
+        return email.substring(0, 2) + masked + email.substring(arrobaIndex);
+    }
 }

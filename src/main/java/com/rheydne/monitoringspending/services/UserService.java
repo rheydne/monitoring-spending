@@ -31,7 +31,7 @@ public class UserService {
         if(user == null) {
             throw new RuntimeException("Usuário não encontrado! id: " + id + ", Tipo: " + User.class.getName());
         } else {
-            user.setEmailAdress(maskedEmail(user.getEmailAdress()));
+            user.setEmailAdress(user.maskedEmail(user.getEmailAdress()));
         }
         return user;
     }
@@ -63,10 +63,5 @@ public class UserService {
         }
     }
 
-    private String maskedEmail(String email) {
-        int arrobaIndex = email.indexOf("@");
-        String lengh = email.substring(2, arrobaIndex);
-        String masked = "*".repeat(lengh.length());
-        return email.substring(0, 2) + masked + email.substring(arrobaIndex);
-    }
+    
 }
